@@ -1,0 +1,19 @@
+<!-- Build artifacts and intermediate files: For example, if you're building a Go application, you might want to exclude the bin and pkg directories.
+
+Version control system directories: For example, if you're using Git, you might want to exclude the .git directory.
+
+Temporary files and directories: For example, you might want to exclude a tmp directory or files with the .log or .swp extensions.
+
+Large files or directories that are not needed at runtime: For example, you might want to exclude a large_files directory that contains data files that are only needed for development or testing.
+
+Here's an example .dockerignore file that excludes some common items:
+
+# ignore all files in the .git directory
+.git/
+
+# ignore all files in the build/ directory
+build/
+
+# ignore all .log files
+*.log -->
+.git/

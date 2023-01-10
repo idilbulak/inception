@@ -1,0 +1,30 @@
+some useful Docker commands:
+
+docker compose:
+    -f: Specifies the path to the Docker Compose file.
+    --env-file: Specifies a file containing environment variables to be used in the environment.
+    -p: Specifies a prefix to be used in the name of the containers.
+    -d: Runs containers in the background.
+    --build: Forces Docker Compose to build all images from scratch, even if they have not changed.
+docker compose down: Stop and remove containers, networks
+docker compose up: Create and start containers
+
+docker run: Runs a Docker container.
+docker start: Starts a stopped Docker container.
+docker stop: Stops a running Docker container.
+docker rm: Removes a Docker container.
+docker rmi: Removes a Docker image.
+docker ps: Lists all running Docker containers.
+    -a: Shows all containers (default shows just running containers).
+    -q: Shows only container IDs.
+    -l: Shows the latest created container, include non-running ones.
+    -n=-1: Shows n last created containers, include non-running ones.
+    -s: Shows total file sizes.
+    -f: Shows containers matching a given filter.
+    --format: Allows you to specify a Go template to customize the output format.
+docker images: Lists all Docker images.
+docker exec: Runs a command in a running Docker container.
+docker logs: Shows the logs of a Docker container.
+docker build: Builds a Docker image from a Dockerfile.
+docker push: Pushes a Docker image to a registry.
+docker pull: Pulls a Docker image from a registry.

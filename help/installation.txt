@@ -1,0 +1,96 @@
+virtual machine'e basit bir debian kur.
+    partitiona gerek yok.
+    graphical environment icin de openbox kullanabilirsin.
+    sadece ssh ayarlarini degistereceksin.
+
+debiani baslattiktan sonra ilk once upgrade et ve gerekli paketleri yuklemeye basla.
+
+paketleri yukledikten sonra openbpxu startx commandiyle baslatabilirsin.
+    mouse'u azicik hover ettiginde ve right click on mouse sana bir menu verecek. hersey bu menude.
+    exit=cikis icin;
+    applications icinde-system-kitty terminal acmak icin; (boylelikle hem tty terminalin hem GUI terminalin olacak)
+    applications icinde yine internette chrome bulabilirsin
+
+simdi openboxtan cikip diger ayarlari yapalim
+
+ssh_gerekli configurationlari yapalim
+degisiklik varsa restart unutma
+
+ufw ile portlara izinleri ver. 
+
+evet debian icin portlari actik ama simdi trafigi hosttan gueste redirect etmeliyiz.
+bunu virtual machinenin settinglerinden yapiyordun, born2beroota geri don.
+ssh kullanarak hostu ve virtual machinei birbirne baglayacagz.
+
+sudoers ayarlarini degistirerek isini kolaylastirabilirisn why not?
+
+simdi su sertifika isini hallet :( veya halletme ama unutma bir noktada..
+
+(makefile)
+
+
+                                             www
+                                              |              
+Computer Host(VM)----------------------------------------|
+|                                             |<443>     |
+|   Docker Network---------------------------------|     |
+|   |                                         |    |     |
+|   |   DB<--3306-->Wordpress+PHP<--9000-->NGINX   |     |
+|   |    |                 |                 /     |     |
+|   |    |                 |                /      |     |
+|   |----------------------------------------------|     |
+|        |                 |              /              |
+|        |                 |             /               |
+|        DB                   Wordpress                  |
+|--------------------------------------------------------|
+
+Nginx is a popular open-source web server that is known for its high performance,
+stability, and low resource consumption. It is often used as a reverse proxy server
+for HTTP, HTTPS, and other protocols.
+
+PHP is a popular open-source programming language that is especially well-suited
+for web development. It is often used in conjunction with a web server like Nginx
+to create dynamic, database-driven websites.
+php-fpm (PHP FastCGI Process Manager) is an alternative PHP FastCGI implementation
+with some additional features useful for sites of any size, especially busier sites.
+
+WordPress is a popular open-source content management system (CMS) based on PHP and
+MySQL. It is used to build and maintain websites and blogs.
+
+MariaDB is a fork of the MySQL database management system. It is an open-source
+database management system that is widely used in web applications.
+
+Together, these technologies can be used to build and run a dynamic, database-driven website or application.
+
+bu infrastructure i kuracaksin
+
+what is origin server?
+https://www.cloudflare.com/learning/cdn/glossary/origin-server/
+
+what is a proxy server?
+https://www.cloudflare.com/en-gb/learning/cdn/glossary/reverse-proxy/
+
+ssl protocol?
+https://www.cloudflare.com/en-gb/learning/ssl/what-is-ssl/
+
+what is php?
+https://www.php.net/manual/en/introduction.php
+https://www.w3schools.com/php/php_intro.asp
+https://rockcontent.com/blog/scripting-languages/
+
+wordpress?
+https://kinsta.com/knowledgebase/what-is-wordpress/
+
+MariaDB
+https://mariadb.org/
+
+dockerfile--herseyin basi, butun ayarlar burda veriliyor. bunu build ettiginde bir template olan imagelar olusuyor
+bu imageleri dockerhuba ppull\push yapabilirsin
+bu imageleri de run ettigimizde containerlar olusuyor
+
+
+
+
+
+
+

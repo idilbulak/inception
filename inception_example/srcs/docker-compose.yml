@@ -1,0 +1,69 @@
+version: '1.29.2'
+
+networks:
+  network_inception:
+    driver : bridge
+
+volumes:
+  volume_db:
+    driver: local
+    driver_opts:
+      # type: tmpfs (volume?)
+      # device: The device option specifies the path on the host machine where the data for the volume is stored.
+      o: bind
+  volume_wordpress:
+    driver: local
+    driver_opts:
+      # type: tmpfs (volume?)
+      # device: The device option specifies the path on the host machine where the data for the volume is stored.
+      o: bind
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    build: ./requirements/nginx
+    restart: always
+    ports:
+      - "443:443"
+    env_file:
+      - .env
+    networks:
+      - network_inception
+    depends_on:
+      - wordpress
+    volumes:
+      - volume_wordpress:/var/www/wordpress
+  wordpress:
+    container_name: wordpress
+    image: wordpress
+    build: ./requirements/wordpress
+    restart: always
+    ports:
+      - "9000:9000"
+    env_file:
+      - .env
+    networks:
+      - network_inception
+    depends_on:
+      - mariadb
+    volumes:
+      - volume_wordpress:/var/www/wordpress 
+      # buraya wordpress web files pathini koymalisin
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    build: ./requirements/mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    networks:
+      - network_inception
+    volumes:
+      - volume_db:/var/lib/mysql
+      # bu databasein pathi
+  
+
+
