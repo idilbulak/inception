@@ -28,3 +28,13 @@ docker logs: Shows the logs of a Docker container.
 docker build: Builds a Docker image from a Dockerfile.
 docker push: Pushes a Docker image to a registry.
 docker pull: Pulls a Docker image from a registry.
+docker system prune -a: is a command used to remove unused data from a Docker system.
+    The -a flag stands for "all" and is used to remove all unused data, including stopped
+    containers, unused networks, and images without at least one container associated to
+    them. This command can be useful for freeing up disk space, especially if you have been
+    experimenting with different images and containers and have a lot of unnecessary data
+    on your system. This command however will delete all the stopped containers, networks
+    not used by any container and all the images not used by any container. You should use
+    this command with caution, as it can delete important data if you are not careful.
+
+https://circleci.com/blog/docker-and-cicd-tutorial-a-deep-dive-into-containers/?utm_source=google&utm_medium=sem&utm_campaign=sem-google-dg--emea-en-dsa-maxConv-auth-nb&utm_term=s_-_c__dsa_&utm_content=&gclid=Cj0KCQiAtvSdBhD0ARIsAPf8oNl7BpqGRwSRlSMzFOFS8K4W2NoGQUOsE0GKVVvE9gMFN0lTtlq6LAwaAvq8EALw_wcB
