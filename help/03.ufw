@@ -1,0 +1,7 @@
+ufw enable: to activate it.
+ufw status: to check if its active
+ufw allow (portnumber)
+    port numbers to be allowed:
+        443 (for docker network)
+        80 (the default port for HTTP traffic)
+        4242

@@ -1,0 +1,96 @@
+nginx is a web server that is often used to serve static files, reverse
+proxy HTTP and HTTPS traffic, and act as a load balancer. It is known
+for its high performance, stability, and low resource consumption.
+
+nginx -v: gives the version of nginx (to check if it is already installed)
+nginx -t: check conf file syntax before reloading
+nginx -T: display current conf
+nginx -s reload: reload
+systemctl status nginx: to check if it is running
+daemons off: In a Unix environment, the parent process of a
+    daemon is often, but not always, the init process.
+    A daemon is usually created either by a process forking
+    a child process and then immediately exiting, thus causing
+    init to adopt the child process, or by the init process directly
+    launching the daemon.
+    intintionaally orphaned process.
+
+default location is.. 
+etc/nginx/nginx.conf
+but in school?
+/usr/local/etc/nginx
+
+In an NGINX configuration file, the listen directive specifies the IP
+address and port that the server should listen on for incoming connections.
+In the example you provided, listen 443 ssl; specifies that the server should
+listen on port 443 for SSL/TLS-encrypted connections.
+Port 443 is the default port for HTTPS (Hypertext Transfer Protocol Secure),
+which is a secure version of HTTP that is used to transmit sensitive data such
+as login credentials and credit card numbers. By listening on port 443, the server
+is able to accept HTTPS requests from clients.
+The ssl parameter specifies that the server should use SSL/TLS to encrypt
+the communication between the client and the server. This ensures that the data
+transmitted between the client and the server is secure and cannot be intercepted
+by third parties.
+The listen directive is typically used in the server block of an NGINX
+configuration file, which defines the settings and behavior for a specific virtual server.
+You can specify multiple listen directives in a single server block to specify different
+IP addresses and ports that the server should listen on.
+
+ssl_certificate: This directive specifies the path to the SSL certificate file that you want to use.
+The certificate file should be in PEM format.
+
+ssl_certificate_key: This directive specifies the path to the private key file that corresponds to
+the SSL certificate. The private key file should also be in PEM format.
+
+ssl_protocols: This directive specifies the SSL/TLS protocols that the server should support. You can
+specify one or more protocols, separated by spaces. For example:
+ssl_protocols TLSv1.2 TLSv1.3;
+
+ssl_ciphers: This directive specifies the cipher suites that the server should support. Cipher suites
+are sets of cryptographic algorithms that are used to secure communications over SSL/TLS. You can specify
+one or more cipher suites, separated by spaces.
+
+ssl_prefer_server_ciphers: This directive specifies whether the server should prefer its own cipher suite
+list over the client's cipher suite list during the SSL/TLS handshake.
+
+server_name: directive is used to specify the domain name or hostname that the server should respond to.
+This is important because it allows the server to distinguish between different virtual servers that may be
+running on the same machine.
+
+root: directive specifies the root directory that the server should use when looking for content to serve.
+This is important because it determines the base location from which the server will serve files.
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name example.com;
+    root /var/www/example.com;
+    ssl_certificate /path/to/cert.pem;
+    ssl_certificate_key /path/to/key.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers on;
+}
+
+1st location block
+    The location / directive matches all requests to the root directory of the website. The try_files directive is used to attempt to serve the requested URL by checking the specified files in the order listed.
+    In this case, the try_files directive is set to $uri $uri/ =404, which means Nginx will first try to serve the requested URL path as a file. If that file does not exist, Nginx will then try to serve the URL path as a directory by appending a trailing slash (e.g. /path/to/dir/). If both the file and directory do not exist, Nginx will return a 404 error.
+    This location block is typically used in conjunction with other location blocks to handle different types of requests and serve different content based on the URL path. For example, a separate location block may be used to handle requests for PHP scripts or static files.
+
+2nd location block
+    The location block matches all URLs that end with .php. The regular expression ~ \.php$ means to match URLs that end with the string .php. The tilde (~) symbol is used to indicate a case-sensitive regular expression match, while the dollar sign ($) signifies the end of the URL.
+    The fastcgi_pass directive tells Nginx to forward the request to a FastCGI server running on wordpress host and listening on port 9000. The include fastcgi_params directive includes the default FastCGI parameters file.
+    The fastcgi_param directive sets the SCRIPT_FILENAME FastCGI parameter to the value of the $document_root$fastcgi_script_name variable. The $document_root variable contains the root directory for serving web content, while the $fastcgi_script_name variable contains the relative URL path of the requested PHP script.
+    This location block is typically used in conjunction with PHP-FPM to handle PHP requests for a web application. When a client sends a request for a PHP file, Nginx will forward the request to the PHP-FPM server, which will execute the script and return the result.
+
+http://nginx.org/en/docs/beginners_guide.html
+https://docs.nginx.com/nginx/admin-guide/web-server/web-server/
+https://www.freecodecamp.org/news/the-nginx-handbook/
+https://www.freecodecamp.org/news/the-nginx-handbook/#introduction-to-nginx-s-configuration-files
+https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-11
+https://www.digitalocean.com/community/tutorials/nginx-location-directive
+https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
+https://cloud.google.com/architecture/best-practices-for-building-containers#signal-handling
+https://www.youtube.com/watch?v=C5kMgshNc6g
+https://www.nginx.com/blog/back-to-basics-web-traffic-encryption-with-ssl-tls-and-nginx/

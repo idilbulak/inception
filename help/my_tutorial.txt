@@ -1,0 +1,92 @@
+virtual machine'e basit bir debian kur.
+    partitiona gerek yok.
+    graphical environment icin de openbox kullanabilirsin.
+    sadece ssh ayarlarini degistereceksin.
+
+debiani baslattiktan sonra ilk once upgrade et ve gerekli paketleri yuklemeye basla.
+
+paketleri yukledikten sonra openbpxu startx commandiyle baslatabilirsin.
+    mouse'u azicik hover ettiginde ve right click on mouse sana bir menu verecek. hersey bu menude.
+    exit=cikis icin;
+    applications icinde-system-kitty terminal acmak icin; (boylelikle hem tty terminalin hem GUI terminalin olacak)
+    applications icinde yine internette chrome bulabilirsin
+
+simdi openboxtan cikip diger ayarlari yapalim
+
+ssh_gerekli configurationlari yapalim
+degisiklik varsa restart unutma
+
+ufw ile portlara izinleri ver. 
+
+evet debian icin portlari actik ama simdi trafigi hosttan gueste redirect etmeliyiz.
+bunu virtual machinenin settinglerinden yapiyordun, born2beroota geri don.
+ssh kullanarak hostu ve virtual machinei birbirne baglayacagz.
+
+sudoers ayarlarini degistirerek isini kolaylastirabilirisn why not?
+
+simdi su sertifika isini hallet :( veya halletme ama unutma bir noktada..
+
+(makefile)
+
+
+                                             www
+                                              |              
+Computer Host(VM)----------------------------------------|
+|                                             |<443>     |
+|   Docker Network---------------------------------|     |
+|   |                                         |    |     |
+|   |   DB<--3306-->Wordpress+PHP<--9000-->NGINX   |     |
+|   |    |                 |                 /     |     |
+|   |    |                 |                /      |     |
+|   |----------------------------------------------|     |
+|        |                 |              /              |
+|        |                 |             /               |
+|        DB                   Wordpress                  |
+|--------------------------------------------------------|
+
+This setup will result in a WordPress website that is running inside of a Docker
+container and is being served by another container running NGINX with only TLSv1.2
+or TLSv1.3 enabled. The WordPress container is connected to a MariaDB container,
+which is used as the database for the WordPress website. The website's files and
+database are stored on separate volumes, and all of the containers are connected
+through a docker-network.
+
+http://localhost
+http://127.0.0.1
+bunlar webbrowserla girilebiliyorsa web server yukli ya da bu commanle de check edebilirsin:
+netstat -an | grep LISTEN
+yalniz "0.0.0.0:80" or "127.0.0.1:80"  bunlardan biri listede olmali.
+
+
+what is origin server?
+https://www.cloudflare.com/learning/cdn/glossary/origin-server/
+
+what is a proxy server?
+https://www.cloudflare.com/en-gb/learning/cdn/glossary/reverse-proxy/
+
+ssl protocol?
+https://www.cloudflare.com/en-gb/learning/ssl/what-is-ssl/
+
+what is php?
+https://www.php.net/manual/en/introduction.php
+https://www.w3schools.com/php/php_intro.asp
+https://rockcontent.com/blog/scripting-languages/
+
+wordpress?
+https://kinsta.com/knowledgebase/what-is-wordpress/
+
+MariaDB
+https://mariadb.org/
+
+dockerfile--herseyin basi, butun ayarlar burda veriliyor. bunu build ettiginde bir template olan imagelar olusuyor
+bu imageleri dockerhuba ppull\push yapabilirsin
+bu imageleri de run ettigimizde containerlar olusuyor
+
+tcp and http farki?
+https://www.goanywhere.com/blog/http-vs-tcp-whats-the-difference#:~:text=TCP%20contains%20information%20about%20what,data%20in%20the%20stream%20contains.
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+To generate a security key for a webpage run by Nginx in Linux, you can use the openssl tool.
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
+    openssl req --help
+    -x509: to create a self-signed X.509 certificate.
+    -nodes: the private key will not be protected by a password.
+    -subj: to specify the subject information in a single line as a distinguished name (DN).
+        Country (C)
+        State or Province (ST)
+        Locality (L)
+        Organization (O): Example Inc
+        Common Name (CN): www.example.com
+
+
+
+
+
+
+
+
+
+
+
+
+

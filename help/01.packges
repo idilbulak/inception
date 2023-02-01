@@ -1,0 +1,54 @@
+    openbox= a simple graphical environment.
+        Openbox is a free and open-source window manager for the X Window System, which
+        is the foundation of the graphical user interface (GUI) in Unix and Linux operating
+        systems. It is designed to be lightweight and fast, and it is known for its low
+        resource usage and high degree of customization.
+        Openbox is a popular choice for users who want a simple and efficient window manager
+        that does not come with the overhead of a full
+        desktop environment. It is often used in conjunction with other applications, such as a
+        panel, a desktop background program, and a dock, to create a complete desktop experience.
+        Openbox can also be used as a standalone window manager, without any additional software.
+        One of the key features of Openbox is its high level of customization. The window manager
+        can be configured through configuration files and menus, and users can customize the look
+        and behavior of the window manager to suit their preferences. Openbox also supports themes,
+        which allow users to easily change the appearance of the window manager.
+        Overall, Openbox is a fast and lightweight window manager that is well-suited for users who
+        want a simple and efficient GUI without the overhead of a full desktop environment.
+
+        one of the openbox's dependencies is xorg, check if installed.
+        X Window System, which is the foundation of the graphical user interface (GUI) in Unix and Linux
+        operating systems.
+
+        startx command will Initializes an X session.
+        If a startup script file name is not given at the command line with the -x option, then
+        the startx command searches for a file specified by the user's XINITRC environment variable.
+        If the XINITRC environment variable is not set, then the startx command searches the user's home
+        directory for a file called .Xinit, .xinit, .Xinitrc, .xinitrc, or .xsession, respectively, to begin
+        the X client programs.
+        check if xinit is installed.
+
+    kitty = terminal emulator.
+        Kitty is a free and open-source terminal emulator for Unix-like operating systems. It is designed to
+        be fast and lightweight, and it is known for its support for modern features such as graphics rendering,
+        ligatures, and Unicode.
+        Kitty is implemented in C++ and uses the GPU for rendering, which makes it faster and more efficient than
+        many other terminal emulators. It also supports multiple tabs and windows, and it has a flexible configuration
+        system that allows users to customize the appearance and behavior of the terminal emulator.
+        In addition to its basic terminal emulation features, Kitty also includes support for features such as color schemes,
+        transparency, and mouse integration. It is compatible with many popular terminal multiplexers, such as tmux and screen,
+        and it can be used as a drop-in replacement for other terminal emulators such as xterm or gnome-terminal.
+        Overall, Kitty is a fast and lightweight terminal emulator that is well-suited for users who want a modern and feature-rich
+        terminal emulator.
+    
+    ufw = The ufw (Uncomplicated Firewall) is a frontend for managing firewall rules on a computer running Linux.
+        It is designed to be easy to use and configure, and it allows users to set up and manage a firewall without
+        needing to know the underlying details of the firewall software being used. Ufw is implemented as a command-line
+        interface (CLI) and can be used to configure firewall rules for both incoming and outgoing traffic. Ufw is installed
+        by default on many popular Linux distributions, such as Ubuntu, and it is a popular choice for managing firewalls on
+        servers and other types of servers.
+    
+    docker
+    docker-compose
+    make
+    google-chrome veya firefox-esr
+

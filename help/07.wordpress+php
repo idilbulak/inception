@@ -1,0 +1,39 @@
+WordPress is a content management system (CMS) that is based on PHP(scripting language) and
+MySQL. It is used to build and maintain websites, blogs, and other web-based
+applications. WordPress is open-source software, which means that it is free
+to use and modify. It is used by millions of websites around the world and
+is known for its ease of use and flexibility.
+
+PHP is a popular open-source programming language that is especially well-suited
+for web development. It is often used in conjunction with a web server like Nginx
+to create dynamic, database-driven websites.
+php-fpm (PHP FastCGI Process Manager) is an alternative PHP FastCGI implementation
+with some additional features useful for sites of any size, especially busier sites.
+
+wget - A command-line utility for downloading files from the internet.
+curl - A command-line tool for transferring data using various protocols.
+bash - A popular Unix shell used as the default shell in many Linux distributions.
+tar - A widely used archive format and utility for creating and manipulating archive files in Linux. The tar command is used to create and extract .tar archive files, often used for software distribution or backup purposes.
+php - A server-side scripting language used for web development.
+php-cgi - A fastCGI implementation of the PHP language, used to process dynamic web content.
+php-mysql - A PHP extension that allows PHP scripts to interact with MySQL databases.
+php-fpm - FastCGI process manager for PHP, used to improve performance of PHP-based web applications.
+php-pdo - A PHP extension for data access abstraction, providing a simple and consistent interface for accessing databases.
+php-gd - A PHP extension for image manipulation, used for tasks such as generating thumbnails or creating graphics on the fly.
+php-cli - A command-line interface for PHP, allowing scripts to be run from the command-line.
+php-mbstring - A PHP extension for multibyte string functions, supporting a wide range of character encodings.
+redis - An open-source, in-memory data structure store, used as a database, cache, and message broker.
+php-redis - A PHP extension for interacting with the Redis database, allowing PHP scripts to store and retrieve data from Redis.
+
+wordpress config file : wp-config.php
+https://www.wpbeginner.com/glossary/wp-config-php/#:~:text=Messenger%20WhatsApp%20Email-,wp%2Dconfig.,Users%2C%20Settings%2C%20etc).
+
+php config file : www.conf
+chat-gpt(^\/^)
+
+https://www.php.net/manual/en/introduction.php
+https://wordpress.org/documentation/article/how-to-install-wordpress/
+https://www.cloudways.com/blog/install-wordpress-on-linux/
+https://tecadmin.net/install-nginx-php-fpm-debian-10/
+https://packages.debian.org/buster/php-fpm
+https://www.digitalocean.com/community/tutorials/php-fpm-nginx
