@@ -1,9 +1,0 @@
-nano /etc/sudoers :to add superuser
-su ibulak :to switch
-groups ibulak
-sudo usermod -aG docker ibulak :
-    to add the user <your_nickname> to the docker group.
-    usermod is a command that modifies a user's account.
-    The -a flag tells usermod to append the user to the
-    specified group (in this case, the docker group)
-    The -G flag specifies the group to which the user should be added.
